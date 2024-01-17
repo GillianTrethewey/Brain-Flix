@@ -2,7 +2,7 @@ import './Button.scss';
 
 const Button = (props) => {
   return (
-    <Button className={props.btnClassName}>{props.btnLabel}</Button>
+    <button className={props.btnClassName}>{props.btnLabel}</button>
   )
 }
 

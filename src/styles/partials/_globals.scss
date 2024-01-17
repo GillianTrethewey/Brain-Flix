@@ -1,0 +1,26 @@
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: $fs-root;
+  color: $main-dk;
+  font-family: "Avenir", sans-serif;
+  background-color: $main-lt;
+}
+
+body {
+ margin: 0 auto;
+}
+
+table,
+th,
+td {
+  border: 0;
+  border-collapse: collapse;
+}
+

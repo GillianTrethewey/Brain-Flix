@@ -2,7 +2,9 @@ import './Comment.scss';
 
 const Comment = (props) => {
   return (
-    <div>Comment</div>
+    <section class="comments__list">
+      
+    </section>
   )
 }
 

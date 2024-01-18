@@ -3,26 +3,27 @@
 @use "../../styles/partials/typography" as *;
 
 .header {
+  
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 60vw;
-    padding: 1rem;
     max-height: 20vh;
+    padding: 1rem;
 
     @include tablet {
       flex-direction: row;
-      padding: 1rem 2.25rem;
       justify-content: space-between;
       align-items: center;
       height: 75px;
-      background-color: pink;
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
     }
 
     @include desktop {
-      max-width: 1120px;
-      margin: 0 auto;
+      padding-left: 7.75rem;
+      padding-right: 7.75rem;
     }
   }
 
@@ -30,13 +31,8 @@
     margin-bottom: 1rem;
     max-height: 25px;
 
-
     @include tablet {
-      height: 80px;
       margin: 0;
-
-
-
     }
   }
 
@@ -45,13 +41,12 @@
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    margin-bottom: 1rem;
 
     @include tablet {
       flex-direction: row;
+      justify-content: flex-end;
       width: 70vw;
-      margin-bottom: 0;
-      margin-right: 1.5rem;
+      align-items: center;
     }
   }
 
@@ -59,22 +54,42 @@
     width: 100%;
     height: 2.5rem;
     padding: 1rem 2.25rem;
-    background: $sec-lt url("../../assets/images/icons/search.svg") 0.75rem no-repeat;
+    background: $alabaster url("../../assets/images/icons/search.svg") 0.75rem
+      no-repeat;
     background-size: 1rem;
-    color: $sec-dk;
-    font-weight: 400;
-    border: 1px solid $sec-med;
+    color: $bf-dk-black;
+    font-weight: 300;
+    border: 1px solid $mercury;
     border-radius: 4px;
     margin-right: 0.75rem;
     font-size: 0.7rem;
+    font-family: "Avenir", sans-serif;
 
     @include tablet {
       padding: 1rem 2.25rem;
-      width: 240px;
+      width: 245px;
     }
 
     @include desktop {
-      padding: 1.5rem 5rem;
+      padding: 1.25rem 2.75rem;
+      background-size: 1.2rem;
+      background-position: 1rem;
+    }
+
+    ::placeholder {
+      color: $bf-dk-black;
+      font-family: "Avenir", sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+    }
+
+    &:focus {
+      outline: 1px solid transparent;
+      border: 1px solid $bf-blue;
+    }
+
+    &:active {
+      border: 2px solid $bf-blue;
     }
 
     &-container {
@@ -90,25 +105,30 @@
     height: 2.25rem;
     object-fit: cover;
     object-position: 20% 50%;
-    background-color: $sec-med;
+    background-color: $mercury;
 
     @include tablet {
       display: none;
     }
 
     &--tablet {
-      border-radius: 50%;
-      width: 2.75rem;
-      height: 2.75rem;
-      object-fit: cover;
-      object-position: 20% 50%;
-      background-color: $sec-med;
+      display: none;
 
+      @include tablet {
+        display: flex;
+        border-radius: 50%;
+        width: 2.75rem;
+        height: 2.75rem;
+        object-fit: cover;
+        object-position: 20% 50%;
+        background-color: $mercury;
+      }
+
+      @include desktop {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: 1.5rem;
+      }
     }
-  }
-
-  &__button-container {
-    display: flex;
-
   }
 }

@@ -1,6 +1,6 @@
 import './Comment.scss';
 
-const Comment = () => {
+const Comment = (props) => {
   return (
     <div>Comment</div>
   )

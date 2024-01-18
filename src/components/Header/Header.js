@@ -7,19 +7,28 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <div classname="header__logo-container">
-          <img className="header__logo" src={logo} alt="Brain Flix logo" />         
+        <div className="header__logo-container">
+          <img className="header__logo" src={logo} alt="Brain Flix logo" />
         </div>
         <div className="header__wrapper">
           <div className="header__search-container">
-            <input className="header__search" id="site-search" placeholder="Search" name="query" type="search" />
+            <input
+              className="header__search"
+              id="site-search"
+              placeholder="Search"
+              name="query"
+              type="search"
+            />
             <img className="header__avatar" src={avatarImage} alt="avatar" />
           </div>
           <div className="header__button-container">
             <Button btnClassName="header__button--upload" btnLabel="UPLOAD" />
           </div>
-          <img className="header__avatar--tablet" src={avatarImage} alt="avatar" />
-          
+          <img
+            className="header__avatar--tablet"
+            src={avatarImage}
+            alt="avatar"
+          />
         </div>
       </div>
     </header>

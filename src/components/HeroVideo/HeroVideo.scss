@@ -4,40 +4,34 @@
 
 .hero-video {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-
+    height: auto;
 
     @include tablet {
-
+        
     }
     @include desktop {
-      height: 65vh;
       max-width: 968px;
-      margin: 0 auto;
+      
     }
 
   &__container {
     background-color: $bf-dk-black;
     width: 100%;
-    height: 45vh;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 56.25%;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 
   
     @include tablet {
-      height: 70vh;
       padding-left: 2.25rem;
       padding-right: 2.25rem;
-      max-width: 968px;
-      margin: 0 auto;
     }
     @include desktop {
-      height: 65vh;
+        padding-left: 7.75rem;
+        padding-right: 7.75rem;
+        
     }
   }
 }

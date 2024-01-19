@@ -1,0 +1,136 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.video {
+  &__description {
+    font-weight: 400;
+    font-size: 0.7rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.75;
+    padding-top: 1rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+      padding-top: 2rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  &__description-container {
+    padding: 1rem;
+
+    @include tablet {
+        padding: 2.25rem;
+    }
+
+    @include desktop {
+        padding-left: 7.75rem;
+        padding-right: 1rem;
+    }
+  }
+
+  &__title-stats-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__title {
+    margin:0;
+    padding: 0;
+    font-size: 1.5rem;
+    color: $bf-black;
+    margin-bottom: 1rem;
+    line-height: 2.25rem;
+
+    @include tablet {
+        font-size: 2.25rem;
+        margin: 0;
+        margin-bottom: 0.5rem;
+    }
+
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    border-top: 1px solid $mercury;
+    border-bottom: 1px solid $mercury;
+
+    @include tablet {
+        padding-left: 0;
+        padding-right: 0;
+        border-top: 0;
+
+    }
+  }
+
+  &__author-date-container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 30%;
+
+    }
+    
+  }
+
+  &__author {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  &__date {
+    color: $mercury;
+    font-size: 0.8rem;
+  }
+
+  &__views-hearts-container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 30%;
+    }
+  }
+
+  &__views-container {
+    display: flex;
+
+  }
+
+  &__views-icon {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  &__views-stats {
+    display: flex;
+    flex-direction: column;
+    color: $mercury;
+    font-size: 0.8rem;
+  }
+
+  &__likes-container {
+    display: flex;
+
+  }
+
+  &__likes-icon {
+    margin-right: 0.5rem;
+  }
+
+  &__likes-stats {
+    color: $mercury;
+    font-size: 0.8rem;
+  }
+
+}

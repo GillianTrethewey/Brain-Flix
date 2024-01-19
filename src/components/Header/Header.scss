@@ -45,8 +45,8 @@
     @include tablet {
       flex-direction: row;
       justify-content: flex-end;
-      width: 70vw;
       align-items: center;
+      width: 70vw;
     }
   }
 
@@ -63,11 +63,10 @@
     border-radius: 4px;
     margin-right: 0.75rem;
     font-size: 0.7rem;
-    font-family: "Avenir", sans-serif;
+    font-family: "Avenir";
 
     @include tablet {
       padding: 1rem 2.25rem;
-      width: 245px;
     }
 
     @include desktop {
@@ -78,7 +77,7 @@
 
     ::placeholder {
       color: $bf-dk-black;
-      font-family: "Avenir", sans-serif;
+      font-family: "Avenir";
       font-weight: 300;
       font-size: 0.8rem;
     }
@@ -115,7 +114,7 @@
       display: none;
 
       @include tablet {
-        display: flex;
+        display: block;
         border-radius: 50%;
         width: 2.75rem;
         height: 2.75rem;

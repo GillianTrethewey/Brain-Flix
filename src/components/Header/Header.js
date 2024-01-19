@@ -22,7 +22,7 @@ const Header = () => {
             <img className="header__avatar" src={avatarImage} alt="avatar" />
           </div>
           <div className="header__button-container">
-            <Button btnClassName="header__button--upload" btnLabel="UPLOAD" />
+            <Button btnClassName="button--upload" btnLabel="UPLOAD" btnType="" />
           </div>
           <img
             className="header__avatar--tablet"

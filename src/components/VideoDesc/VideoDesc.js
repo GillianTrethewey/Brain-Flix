@@ -1,13 +1,7 @@
 import "./VideoDesc.scss";
-import closeFullScreenIcon from "../../assets/images/icons/close_fullscreen.svg";
-import fullscreenIcon from "../../assets/images/icons/fullscreen.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
-import pauseIcon from "../../assets/images/icons/pause.svg";
-import playIcon from "../../assets/images/icons/play.svg";
-import scrubIcon from "../../assets/images/icons/scrub.svg";
 import viewsIcon from "../../assets/images/icons/views.svg";
-import volumeOffIcon from "../../assets/images/icons/volume_off.svg";
-import volumeUpIcon from "../../assets/images/icons/volume_up.svg";
+
 
 const VideoDesc = () => {
   return (

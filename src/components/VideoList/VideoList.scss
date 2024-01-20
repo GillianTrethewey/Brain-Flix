@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.videos {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $mercury;
+    font-weight: 600;
+    margin: 0;
+  }
+}

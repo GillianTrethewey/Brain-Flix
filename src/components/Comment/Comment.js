@@ -6,7 +6,7 @@ const Comment = (props) => {
     <div className="comment__card">
       <div className="comment__group">
         <div className="comment__photo-container">
-          <img className="comment__photo" />
+          <div className="comment__photo"></div>
         </div>
         <div className="comment__container">
           <div className="comment__name-date-container">

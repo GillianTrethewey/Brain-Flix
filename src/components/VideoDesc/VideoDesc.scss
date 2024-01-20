@@ -79,10 +79,8 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        width: 30%;
-
+        width: 180px;
     }
-    
   }
 
   &__author {
@@ -102,13 +100,13 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        width: 30%;
+        width: 180px;
     }
 
     @include desktop {
       padding-right: 1.5rem;;
       margin-right: 0;
-      width: 28%;
+      width: 200px;
     }
   }
 

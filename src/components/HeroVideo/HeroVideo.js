@@ -1,6 +1,6 @@
 import "./HeroVideo.scss";
 
-const HeroVideo = () => {
+const HeroVideo = ({currVideo}) => {
   return (
     <section className="hero-video__container">
       <video
@@ -8,8 +8,8 @@ const HeroVideo = () => {
         className="hero-video"
         controls
         alt="featured video section"
-        poster="https://project-2-api.herokuapp.com/images/image0.jpg">
-          <source src="" type="video/mp4"/>
+        poster={currVideo.image}>
+          <source src="currVideo.video" type="video/mp4"/>
           Your browser does not support the video tag.
         </video>
     </section>

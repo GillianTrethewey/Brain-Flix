@@ -1,23 +1,25 @@
 import "./VideoList.scss";
 import Video from "../Video/Video.js";
 
-const VideoList = ({ setCurrVideo, videoData, currVideo }) => {
-  const changeCurrVideo = (id) => {
-    const newFeatVideo = videoData.find((video) => video.id === id);
-    setCurrVideo(newFeatVideo);
-  };
+const VideoList = ({ alterVideo, videoData, currentVideo }) => {
+  // const updateCurrentVideo = (id) => {
+  //   const newCurrentVideo = videoData.find((video) => video.id === id);
+  //   setCurrentVideo(newCurrentVideo);
+  // };
 
   return (
     <section className="video-list__container">
       <h2 className="video-list__title">NEXT VIDEOS</h2>
-      <div class="video-list">
+      <div className="video-list">
         {videoData.map((video) => {
           return (
-            video.id !== currVideo.id && (
+            video.id !== currentVideo.id && (
               <Video
                 key={video.id}
-                video={video}
-                onClick={() => changeCurrVideo(video.id)}
+                onClick={() => alterVideo(video.id)}
+                image={video.image}
+                title={video.title}
+                channel={video.channel}
               />
             )
           );

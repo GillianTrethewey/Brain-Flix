@@ -3,8 +3,11 @@ import avatarImg from "../../assets/images/avatar/Mohan-muruge.jpg";
 import Button from "../Button/Button.js";
 import Comment from "../Comment/Comment.js";
 
-const Comments = ({comments}) => {
+const Comments = ({ comments }) => {
+
+  
   return (
+    
     <section className="comments">
       <h4 className="comments__count">3 Comments</h4>
       <div className="comments__container">
@@ -42,11 +45,17 @@ const Comments = ({comments}) => {
         </form>
 
         <section className="comments__list">
-            {comments.map((comment) => {
-              return (
-              <Comment comment={comment} key={comment.id} />
-              )
-            })}
+          {comments.map((commentObj) => {
+            return (
+              <Comment
+                id={commentObj.id}
+                name={commentObj.name}
+                comment={commentObj.comment}
+                timestamp={commentObj.timestamp}
+                key={commentObj.id}
+              />
+            );
+          })}
         </section>
       </div>
     </section>

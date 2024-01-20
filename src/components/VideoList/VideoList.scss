@@ -2,21 +2,35 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-.videos {
+.video-list {
+  display: flex;
+  flex-direction: column;
+
   &__container {
     display: flex;
     flex-direction: column;
   }
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-  }
-
   &__title {
-    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
     color: $mercury;
     font-weight: 600;
-    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      font-size: 0.8rem;
+      margin: 0;
+      margin-bottom: 1rem;
+      margin-left: 2.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @include desktop {
+      margin-bottom: 0.5rem;;
+      margin-top: 2rem;
+    }
   }
 }

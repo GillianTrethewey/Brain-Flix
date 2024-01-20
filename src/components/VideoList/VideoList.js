@@ -3,9 +3,9 @@ import Video from "../Video/Video.js";
 
 const VideoList = () => {
   return (
-    <section classList="videos__container">
-      <h2 classList="videos__title">NEXT VIDEOS</h2>
-      <ul classList="videos__list">
+    <section className="video-list__container">
+      <h2 className="video-list__title">NEXT VIDEOS</h2>
+      <ul className="video-list">
         <Video />
         <Video />
         <Video />

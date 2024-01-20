@@ -5,35 +5,35 @@ import viewsIcon from "../../assets/images/icons/views.svg";
 
 const VideoDesc = () => {
   return (
-    <section className="video__description-container">
-      <div className="video__title-stats-container">
-        <h1 className="video__title">BMX Rampage: 2021 Highlights</h1>
-        <div className="video__stats">
-          <div className="video__author-date-container">
-            <p className="video__author">By Red Crow</p>
-            <p className="video__date">07/11/2021</p>
+    <section className="video-desc__description-container">
+      <div className="video-desc__title-stats-container">
+        <h1 className="video-desc__title">BMX Rampage: 2021 Highlights</h1>
+        <div className="video-desc__stats">
+          <div className="video-desc__author-date-container">
+            <p className="video-desc__author">By Red Crow</p>
+            <p className="video-desc__date">07/11/2021</p>
           </div>
-          <div className="video__views-hearts-container">
-            <div className="video__views-container">
+          <div className="video-desc__views-hearts-container">
+            <div className="video-desc__views-container">
               <img
-                className="video__views-icon"
+                className="video-desc__views-icon"
                 src={viewsIcon}
                 alt="views icon"
               />
-              <p className="video__views-stats">1,001,023</p>
+              <p className="video-desc__views-stats">1,001,023</p>
             </div>
-            <div className="video__likes-container">
+            <div className="video-desc__likes-container">
               <img
-                className="video__likes-icon"
+                className="video-desc__likes-icon"
                 src={likesIcon}
                 alt="heart icon"
               />
-              <p className="video__likes-stats">110,985</p>
+              <p className="video-desc__likes-stats">110,985</p>
             </div>
           </div>
         </div>
 
-        <div className="video__description">
+        <div className="video-desc__description">
           On a gusty day in Southern Utah, a group of 25 daring mountain bikers
           blew the doors off what is possible on two wheels, unleashing some of
           the biggest moments the sport has ever seen. While mother nature only

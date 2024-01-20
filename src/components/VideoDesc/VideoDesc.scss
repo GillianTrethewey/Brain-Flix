@@ -2,7 +2,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 
-.video {
+.video-desc {
+  
   &__description {
     font-weight: 400;
     font-size: 0.7rem;
@@ -15,6 +16,10 @@
       padding-top: 2rem;
       line-height: 1.5rem;
     }
+
+    @include desktop {
+      margin-right: 1rem;
+    }
   }
 
   &__description-container {
@@ -26,7 +31,7 @@
 
     @include desktop {
         padding-left: 7.75rem;
-        padding-right: 1rem;
+        padding-right: 0;
     }
   }
 
@@ -64,7 +69,6 @@
         padding-left: 0;
         padding-right: 0;
         border-top: 0;
-
     }
   }
 
@@ -99,6 +103,12 @@
         flex-direction: row;
         justify-content: space-between;
         width: 30%;
+    }
+
+    @include desktop {
+      padding-right: 1.5rem;;
+      margin-right: 0;
+      width: 28%;
     }
   }
 

@@ -109,6 +109,10 @@
       margin: 0;
       margin-bottom: 0.5rem;
     }
+
+    @include desktop {
+      font-size: 0.75rem;
+    }
   }
 
   &__textarea {

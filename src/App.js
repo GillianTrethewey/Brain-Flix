@@ -10,14 +10,20 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <HeroVideo />
-        <div className="desc-comments__container">
-          <VideoDesc />
-          <Comments />
-        </div>
-        <VideoList />
+        <HeroVideo /> 
+        <div className="main__contents">     
+          <section className="desc-comments__container">
+            <VideoDesc />
+            <Comments />
+          </section>
+          <section className="flex-video__container">
+            <VideoList />
+          </section>
+          </div>
+
+
       </main>
-      <footer>&copy;2024</footer>
+      <footer></footer>
     </div>
   );
 }

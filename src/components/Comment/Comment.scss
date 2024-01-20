@@ -28,10 +28,6 @@
   &__photo {
     margin-top: 1rem;
     @include profile-photo;
-
-    @include tablet {
-
-    }
   }
   
     &__name-date-container {
@@ -54,6 +50,10 @@
       color: $mercury;
       font-size: 0.8rem;
       margin: 1rem 0;
+
+      @include desktop {
+        margin-right: 1rem;
+      }
     }
 
     &__text {
@@ -64,6 +64,12 @@
 
       @include desktop {
         margin-bottom: 1.5rem;
+      }
+      
+      :last-child {
+        border-bottom: none;
+        padding-bottom: 3rem;
+        background-color: pink;
       }
     }
   }

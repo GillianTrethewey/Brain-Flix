@@ -1,4 +1,4 @@
-import './VideoList.scss';
+import "./VideoList.scss";
 import Video from "../Video/Video.js";
 
 const VideoList = () => {
@@ -12,7 +12,7 @@ const VideoList = () => {
         <Video />
       </ul>
     </section>
-  )
-}
+  );
+};
 
 export default VideoList;

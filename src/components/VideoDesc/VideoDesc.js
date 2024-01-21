@@ -2,8 +2,18 @@ import "./VideoDesc.scss";
 import likesIcon from "../../assets/images/icons/likes.svg";
 import viewsIcon from "../../assets/images/icons/views.svg";
 
-const VideoDesc = ({ currentVideo }) => {
-  const { title, channel, timestamp, views, likes, description } = currentVideo;
+const VideoDesc = ({ currentVideoDetails }) => {
+  const { title, channel, timestamp, views, likes, description } = currentVideoDetails;
+
+  let newDate = new Date(timestamp);
+  let month = (newDate.getMonth() + 1).toString().padStart(2, "0");
+  let date = newDate.getDate().toString().padStart(2, "0");
+  let year = newDate.getFullYear().toString();
+  let currDateDescr = `${month}/${date}/${year}`;
+
+  console.log('in video descr: ', currentVideoDetails);
+  console.log('title:', title)
+  console.log('likes:', likes)
 
   return (
     <section className="video-desc__description-container">
@@ -12,7 +22,7 @@ const VideoDesc = ({ currentVideo }) => {
         <div className="video-desc__stats">
           <div className="video-desc__author-date-container">
             <p className="video-desc__author">By {channel}</p>
-            <p className="video-desc__date">{timestamp}</p>
+            <p className="video-desc__date">{currDateDescr}</p>
           </div>
           <div className="video-desc__views-hearts-container">
             <div className="video-desc__views-container">

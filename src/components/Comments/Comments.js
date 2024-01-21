@@ -45,8 +45,8 @@ const Comments = ({ comments }) => {
         </form>
 
         <section className="comments__list">
-          {comments.map((commentObj) => {
-            return (
+          {comments && comments.length ? (
+          comments.map((commentObj) => (
               <Comment
                 id={commentObj.id}
                 name={commentObj.name}
@@ -54,8 +54,9 @@ const Comments = ({ comments }) => {
                 timestamp={commentObj.timestamp}
                 key={commentObj.id}
               />
-            );
-          })}
+            ))) : (null)}
+        
+          
         </section>
       </div>
     </section>

@@ -3,24 +3,15 @@
 @use "../../styles/partials/typography" as *;
 
 .hero-video {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-
-    @include tablet {
-        
-    }
-    @include desktop {
-      max-width: 968px;
-      
-    }
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 968px;
+  height: auto;
 
   &__container {
-    background-color: $bf-dk-black;
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    background-color: $bf-black;
 
     @include tablet {
       padding-left: 2.25rem;
@@ -28,9 +19,8 @@
     }
 
     @include desktop {
-        padding-left: 7.75rem;
-        padding-right: 7.75rem;
-        
+      padding-left: auto;
+      padding-right: auto;
     }
   }
 }

@@ -3,59 +3,57 @@
 @use "../../styles/partials/typography" as *;
 
 .video {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+
+  &__item {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+
+  &__container {
+    width: fit-content;
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+    width: 6.75rem;
+    object-fit: cover;
+    align-items: center;
+    border-radius: 4px;
+  }
+
+  &__text-container {
     display: flex;
     flex-direction: column;
-    background-color: $white;
+    justify-content: space-between;
+    width: 170px;
+  }
 
-    &__item {
-        list-style-type: none;
-        display: flex;
-        margin-bottom: 1.5rem;
+  &__title {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
 
+    @include tablet {
     }
+  }
 
-    &__container {
-        width: fit-content;
-        height: auto;
-        margin-right: 1rem;
-    }
+  &__author {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 300;
 
-    &__image {
-        display: flex;
-        justify-content: center;
-        height: 4rem;
-        width: 6.75rem;
-        object-fit: cover;
-        align-items: center;
-        border-radius: 4px;
+    @include desktop {
     }
-
-    &__text-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 150px;        
-    }
-
-    &__title {
-        padding: 0;
-        margin: 0;
-        font-weight: 700;
-        font-size: 0.8rem;
-        line-height: 1.2rem;
-  
-        @include tablet {
-        }
-    }
-
-    &__author {
-        padding: 0;
-        margin: 0;
-        font-size: 0.8rem;
-        font-weight: 300;
-  
-        @include desktop {
-          margin-bottom: 1.5rem;
-        }
-    }
+  }
 }

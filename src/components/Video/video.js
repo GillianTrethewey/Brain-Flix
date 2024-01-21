@@ -1,8 +1,8 @@
 import "./Video.scss";
 
-const Video = ({ image, title, channel }) => {
+const Video = ({ image, title, channel, id , updateVideo }) => {
   return (
-    <div className="video__item">
+    <li className="video__item" id={id} onClick={() => updateVideo(id)} >
       <div className="video__container">
         <img className="video__image" src={image} alt="video thumbnail"></img>
       </div>
@@ -10,7 +10,7 @@ const Video = ({ image, title, channel }) => {
         <p className="video__title">{title}</p>
         <p className="video__author">{channel}</p>
       </div>
-    </div>
+    </li>
   );
 };
 

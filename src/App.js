@@ -13,43 +13,40 @@ import videoDetailsJson from "./data/video-details.json";
 function App() {
   const [videoData, setVideoData] = useState(videoDataJson);
   const [currentVideo, setCurrentVideo] = useState(videoDataJson[0]);
-  const [currentVideoDetails, setCurrentVideoDetails] = useState(videoDetailsJson[0])
+  const [currentVideoDetails, setCurrentVideoDetails] = useState(
+    videoDetailsJson[0]
+  );
 
   const updateVideo = (id) => {
     const newVideo = videoData.find((video) => video.id === id);
     setCurrentVideo(newVideo);
-    setCurrentVideoDetails(videoDetailsJson.find((video) => video.id === id))
+    setCurrentVideoDetails(videoDetailsJson.find((video) => video.id === id));
   };
 
   return (
     <div className="App">
       <Header />
       <main>
-        {currentVideo && (
-        <HeroVideo currentVideo={currentVideo} />
-        )}
+        {currentVideo && <HeroVideo currentVideo={currentVideo} />}
 
         <div className="main__contents">
           <section className="desc-comments__container">
-            
             {currentVideoDetails && (
-            <VideoDesc currentVideoDetails={currentVideoDetails} />
+              <VideoDesc currentVideoDetails={currentVideoDetails} />
             )}
 
             {currentVideoDetails && (
-            <Comments comments={currentVideoDetails.comments} />
+              <Comments comments={currentVideoDetails.comments} />
             )}
-            
-            </section>
+          </section>
 
           <section className="flex-video__container">
-            
             {videoData && currentVideo && (
-            <VideoList
-              updateVideo={updateVideo}
-              videoData={videoData}
-              currentVideo={currentVideo}
-            />
+              <VideoList
+                updateVideo={updateVideo}
+                videoData={videoData}
+                currentVideo={currentVideo}
+              />
             )}
           </section>
         </div>

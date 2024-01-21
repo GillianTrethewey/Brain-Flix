@@ -79,7 +79,7 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        width: 180px;
+        width: 11.25rem;
     }
   }
 
@@ -93,31 +93,33 @@
     font-size: 0.8rem;
   }
 
-  &__views-hearts-container {
+  &__views-likes-container {
     display: flex;
     flex-direction: column;
-
+ 
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
-        width: 180px;
+        width: 11.25rem;
     }
 
     @include desktop {
       padding-right: 1.5rem;;
       margin-right: 0;
-      width: 200px;
+      width: 12.5rem;
     }
   }
 
   &__views-container {
     display: flex;
+    align-items: center;
 
   }
 
   &__views-icon {
     margin-right: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
+    fill: $mercury;
   }
 
   &__views-stats {
@@ -129,11 +131,14 @@
 
   &__likes-container {
     display: flex;
-
+    align-items: center;
+    margin-left: 0.2rem;
   }
 
   &__likes-icon {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
+    fill: $mercury;
+    padding-top: 0.4rem;
   }
 
   &__likes-stats {

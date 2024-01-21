@@ -6,6 +6,10 @@
   display: flex;
   justify-content: space-between;
 
+  &__container {
+    width: 100%;
+  }
+  
   &__card {
     width: 94%;
 
@@ -64,12 +68,6 @@
 
     @include desktop {
       margin-bottom: 1.5rem;
-    }
-
-    :last-child {
-      border-bottom: none;
-      padding-bottom: 3rem;
-      background-color: pink;
     }
   }
 }

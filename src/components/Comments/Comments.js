@@ -9,7 +9,7 @@ const Comments = ({ comments }) => {
   return (
     
     <section className="comments">
-      <h4 className="comments__count">3 Comments</h4>
+      <h4 className="comments__count">{comments.length} Comments</h4>
       <div className="comments__container">
         <form className="comments__form" action="" method="post">
           <div className="comments__group--form">

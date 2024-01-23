@@ -1,11 +1,13 @@
 import './HomePage.scss';
-import HeroVideo from "../components/HeroVideo/HeroVideo.js";
-import VideoDesc from "../components/VideoDesc/VideoDesc.js";
-import Comments from "../components/Comments/Comments.js";
-import VideoList from "../components/VideoList/VideoList.js";
+import { useState, useEffect } from "react";
 
-import videoDataJson from "../data/videos.json";
-import videoDetailsJson from "../data/video-details.json";
+import HeroVideo from "../../components/HeroVideo/HeroVideo.js";
+import VideoDesc from "../../components/VideoDesc/VideoDesc.js";
+import Comments from "../../components/Comments/Comments.js";
+import VideoList from "../../components/VideoList/VideoList.js";
+
+import videoDataJson from "../../data/videos.json";
+import videoDetailsJson from "../../data/video-details.json";
 
 
 const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";

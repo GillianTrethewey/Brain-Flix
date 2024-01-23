@@ -1,10 +1,13 @@
 import "./App.scss";
-import { useState, useEffect } from "react";
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Header from "./components/Header/Header.js";
+import { HomePage } from "./pages/HomePage/HomePage.js";
+import { UploadPage } from "./pages/UploadPage/UploadPage.js";
+import { Error404Page } from "./pages/Error404Page/Error404Page.js";
 
 
 function App() {
@@ -24,36 +27,6 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-
-    // <div className="App">
-    //   <Header />
-    //   <main>
-    //     {currentVideo && <HeroVideo currentVideo={currentVideo} />}
-
-    //     <div className="main__contents">
-    //       <section className="desc-comments__container">
-    //         {currentVideoDetails && (
-    //           <VideoDesc currentVideoDetails={currentVideoDetails} />
-    //         )}
-
-    //         {currentVideoDetails && (
-    //           <Comments comments={currentVideoDetails.comments} />
-    //         )}
-    //       </section>
-
-    //       <section className="flex-video__container">
-    //         {videoData && currentVideo && (
-    //           <VideoList
-    //             updateVideo={updateVideo}
-    //             videoData={videoData}
-    //             currentVideo={currentVideo}
-    //           />
-    //         )}
-    //       </section>
-    //     </div>
-    //   </main>
-    //   <footer></footer>
-    // </div>
   );
 }
 

@@ -2,7 +2,6 @@ import "./App.scss";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 
 import Header from "./components/Header/Header.js";
 import { HomePage } from "./pages/HomePage/HomePage.js";

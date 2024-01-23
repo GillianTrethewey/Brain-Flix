@@ -1,7 +1,7 @@
 import "./VideoList.scss";
 import Video from "../Video/Video.js";
 
-const VideoList = ({ updateVideo, videoData, currentVideo }) => {
+const VideoList = ({ videoData, currentVideo }) => {
   return (
     <section className="video-list__container">
       <h2 className="video-list__title">NEXT VIDEOS</h2>
@@ -15,7 +15,7 @@ const VideoList = ({ updateVideo, videoData, currentVideo }) => {
                 image={video.image}
                 title={video.title}
                 channel={video.channel}
-                updateVideo={updateVideo}
+                currentVideo={currentVideo}
               />
             )
           );

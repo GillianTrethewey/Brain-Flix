@@ -2,7 +2,7 @@ import "./Video.scss";
 
 const Video = ({ image, title, channel, id, updateVideo }) => {
   return (
-    <li className="video__item" id={id} onClick={() => updateVideo(id)}>
+    <li className="video__item" id={id} onClick={getCurrentVideo}>
       <div className="video__container">
         <img className="video__image" src={image} alt="video thumbnail"></img>
       </div>

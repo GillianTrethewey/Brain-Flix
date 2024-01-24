@@ -1,7 +1,5 @@
 import "./VideoList.scss";
 import Video from "../Video/Video.js";
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 const VideoList = ({videoList, currentVideo}) => {
 

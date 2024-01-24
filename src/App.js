@@ -1,7 +1,6 @@
 import "./App.scss";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 import Header from "./components/Header/Header.js";
 import { HomePage } from "./pages/HomePage/HomePage.js";
@@ -10,7 +9,6 @@ import { Error404Page } from "./pages/Error404Page/Error404Page.js";
 
 
 function App() {
-
 
   return (
     <BrowserRouter>

@@ -10,8 +10,6 @@ const HeroVideo = ({ currentVideo }) => {
         controls
         alt="featured video section"
         poster={currentVideo?.image}>
-        <source src={currentVideo?.video} type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
     </section>
   );

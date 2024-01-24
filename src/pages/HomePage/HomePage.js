@@ -29,27 +29,27 @@ export const HomePage = () => {
     getVideoList();
   }, []);
 
-  const getCurrentVideo = async () => {
-    let getId =
-      (videoList &&
-        videoList.filter((video) => video.id === videoId).length > 0 &&
-        videoId) ||
-      (videoList[0] && videoList[0].id);
-
-    if (getId) {
-      try {
-        const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
-        const baseURL = "https://project-2-api.herokuapp.com";
-        let URL = baseURL + "/videos/" + getId + "?api_key=" + apiKey;
-        const response = await axios.get(URL);
-        setCurrentVideo(response.data);
-      } catch (error) {
-        console.log("Failed to get current video details:", error);
-      }
-    }
-  };
-
   useEffect(() => {
+    const getCurrentVideo = async () => {
+      let getId =
+        (videoList &&
+          videoList.filter((video) => video.id === videoId).length > 0 &&
+          videoId) ||
+        (videoList[0] && videoList[0].id);
+
+      if (getId) {
+        try {
+          const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
+          const baseURL = "https://project-2-api.herokuapp.com";
+          let URL = baseURL + "/videos/" + getId + "?api_key=" + apiKey;
+          const response = await axios.get(URL);
+          setCurrentVideo(response.data);
+        } catch (error) {
+          console.log("Failed to get current video details:", error);
+        }
+      }
+    };
+
     getCurrentVideo();
   }, [videoId, videoList]);
 

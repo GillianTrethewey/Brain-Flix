@@ -3,25 +3,17 @@ import likesIcon from "../../assets/images/icons/likes.svg";
 import viewsIcon from "../../assets/images/icons/views.svg";
 import convertTimestamp from "../../utils/utils.js";
 
-const VideoDesc = ({ currentVideoDetails }) => {
-  const {
-    title,
-    channel,
-    timestamp,
-    views,
-    likes,
-    description
-  } = currentVideoDetails;
+const VideoDesc = ({ currentVideo }) => {
 
-  let videoDescDate = convertTimestamp(timestamp);
+  let videoDescDate = convertTimestamp(currentVideo.timestamp);
 
   return (
     <section className="video-desc__description-container">
       <div className="video-desc__title-stats-container">
-        <h1 className="video-desc__title">{title}</h1>
+        <h1 className="video-desc__title">{currentVideo.title}</h1>
         <div className="video-desc__stats">
           <div className="video-desc__author-date-container">
-            <p className="video-desc__author">By {channel}</p>
+            <p className="video-desc__author">By {currentVideo.channel}</p>
             <p className="video-desc__date">{videoDescDate}</p>
           </div>
           <div className="video-desc__views-likes-container">
@@ -31,7 +23,7 @@ const VideoDesc = ({ currentVideoDetails }) => {
                 src={viewsIcon}
                 alt="views icon"
               />
-              <p className="video-desc__views-stats">{views}</p>
+              <p className="video-desc__views-stats">{currentVideo.views}</p>
             </div>
             <div className="video-desc__likes-container">
               <img
@@ -39,12 +31,12 @@ const VideoDesc = ({ currentVideoDetails }) => {
                 src={likesIcon}
                 alt="heart icon"
               />
-              <p className="video-desc__likes-stats">{likes}</p>
+              <p className="video-desc__likes-stats">{currentVideo.likes}</p>
             </div>
           </div>
         </div>
 
-        <div className="video-desc__description">{description}</div>
+        <div className="video-desc__description">{currentVideo.description}</div>
       </div>
     </section>
   );

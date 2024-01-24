@@ -8,9 +8,11 @@
   background-color: $mercury;
 
   &__item {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     margin-bottom: 1.5rem;
+    text-decoration: none;
+    color: $bf-black;
   }
 
   &__container {
@@ -56,4 +58,8 @@
     @include desktop {
     }
   }
+}
+
+.navlink__item {
+  text-decoration: none;
 }

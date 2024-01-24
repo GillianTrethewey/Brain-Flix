@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="/videos" element={<HomePage />} />
-          <Route path="/videos/:id" element={<HomePage />} />
+          <Route path="/videos/:videoId" element={<HomePage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="*" element={<Error404Page />} />
         </Routes>

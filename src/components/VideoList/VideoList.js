@@ -1,25 +1,26 @@
 import "./VideoList.scss";
 import Video from "../Video/Video.js";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const VideoList = ({ videoData, currentVideo }) => {
+const VideoList = ({videoList, currentVideo}) => {
+
   return (
     <section className="video-list__container">
       <h2 className="video-list__title">NEXT VIDEOS</h2>
       <ul className="video-list">
-        {videoData.map((video) => {
-          return (
-            video.id !== currentVideo.id && (
-              <Video
-                key={video.id}
-                id={video.id}
-                image={video.image}
-                title={video.title}
-                channel={video.channel}
-                currentVideo={currentVideo}
-              />
-            )
-          );
-        })}
+        {videoList
+        .filter((video) => video.id !== currentVideo.id)
+        .map((video) => (
+            <Video 
+            key={video.id}
+            id={video.id}
+            image={video.image}
+            title={video.title}
+            channel={video.channel}
+            />
+          ))
+        }
       </ul>
     </section>
   );

@@ -3,9 +3,9 @@ import avatarImg from "../../assets/images/avatar/Mohan-muruge.jpg";
 import Button from "../Button/Button.js";
 import Comment from "../Comment/Comment.js";
 
-const Comments = ({ comments }) => {
+const Comments = ({ currentVideo } ) => {
+    const comments = currentVideo.comments.sort((a,b) => b.timestamp - a.timestamp);
 
-  
   return (
     
     <section className="comments">
@@ -45,18 +45,19 @@ const Comments = ({ comments }) => {
         </form>
 
         <section className="comments__list">
-          {comments && comments.length ? (
-          comments.map((commentObj) => (
-              <Comment
-                id={commentObj.id}
-                name={commentObj.name}
-                comment={commentObj.comment}
-                timestamp={commentObj.timestamp}
-                key={commentObj.id}
-              />
-            ))) : (null)}
-        
+          <ul>
           
+          {comments.map((comment) => (
+            <li key={comment.id} className="comment__list-item">
+              <Comment
+                name={comment.name}
+                comment={comment.comment}
+                timestamp={comment.timestamp}
+              />
+            </li>
+          ))}
+        
+          </ul>
         </section>
       </div>
     </section>

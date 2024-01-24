@@ -1,84 +1,72 @@
 import "./HomePage.scss";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 
 import HeroVideo from "../../components/HeroVideo/HeroVideo.js";
 import VideoDesc from "../../components/VideoDesc/VideoDesc.js";
 import Comments from "../../components/Comments/Comments.js";
 import VideoList from "../../components/VideoList/VideoList.js";
 
-const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
-const baseURL = "https://project-2-api.herokuapp.com";
-
 export const HomePage = () => {
-  const [videoData, setVideoData] = useState([]);
-  const [currentVideo, setCurrentVideo] = useState({});
-  const [currentVideoDetails, setCurrentVideoDetails] = useState(videoData[0]);
+  const [currentVideo, setCurrentVideo] = useState(null);
+  const [videoList, setVideoList] = useState([]);
+  const { videoId } = useParams();
+
+  const getVideoList = async () => {
+    try {
+      const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
+      const baseURL = "https://project-2-api.herokuapp.com";
+      let URL = baseURL + "/videos?api_key=" + apiKey;
+      const response = await axios.get(URL);
+      setVideoList(response.data);
+    } catch (error) {
+      console.log("Failed to get video list:", error);
+    }
+  };
 
   useEffect(() => {
-    const getVideoData = async () => {
-      try {
-        const response = await axios.get(`${baseURL}/videos?api_key=${apiKey}`);
-        setVideoData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Failed to get video data:", error);
-      }
-    };
-    getVideoData(); 
+    getVideoList();
   }, []);
 
-  const { id } = useParams();
+  const getCurrentVideo = async () => {
+    let getId =
+      (videoList &&
+        videoList.filter((video) => video.id === videoId).length > 0 &&
+        videoId) ||
+      (videoList[0] && videoList[0].id);
+
+    if (getId) {
+      try {
+        const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
+        const baseURL = "https://project-2-api.herokuapp.com";
+        let URL = baseURL + "/videos/" + getId + "?api_key=" + apiKey;
+        const response = await axios.get(URL);
+        setCurrentVideo(response.data);
+      } catch (error) {
+        console.log("Failed to get current video details:", error);
+      }
+    }
+  };
 
   useEffect(() => {
-    let getId =
-      (videoData &&
-        videoData.filter((videoObj) => videoObj.id === id)?.length &&
-        id) ||
-      (videoData[0] && videoData[0].id);
-  
-    if (getId) {
-      const getSelectedVideoData = async () => {
-        try {
-          const response = await axios.get(`${baseURL}/videos/${getId}`);
-          console.log(response.data);
-          setCurrentVideo(response.data);
-        } catch (error) {
-          console.error(`Failed to get video data for id ${getId}: ${error}`);
-        }
-      };
-    }
-  }, [id, videoData]);
-  
-  const updateCurrentVideo = async () => {
-    try { 
-        const response = await axios.get(`${baseURL}/videos/${currentVideo.id}`)
-        setCurrentVideo(response.data);
-      } catch(error) {
-        console.log('Failed to update the current video: ', error);
-    }
-      };
+    getCurrentVideo();
+  }, [videoId, videoList]);
 
-
-  return (f
+  return (
     <main>
       {currentVideo && <HeroVideo currentVideo={currentVideo} />}
 
       <div className="main__contents">
         <section className="desc-comments__container">
-          {currentVideoDetails && (
-            <VideoDesc currentVideoDetails={currentVideoDetails} />
-          )}
+          {currentVideo && <VideoDesc currentVideo={currentVideo} />}
 
-          {currentVideoDetails && (
-            <Comments comments={currentVideoDetails.comments} />
-          )}
+          {currentVideo && <Comments currentVideo={currentVideo} />}
         </section>
 
         <section className="flex-video__container">
-          {videoData && currentVideo && (
-            <VideoList videoData={videoData} currentVideo={currentVideo} />
+          {currentVideo && (
+            <VideoList currentVideo={currentVideo} videoList={videoList} />
           )}
         </section>
       </div>

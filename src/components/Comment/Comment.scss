@@ -8,6 +8,10 @@
 
   &__container {
     width: 100%;
+
+    @include desktop {
+      padding-right: 2rem;
+    }
   }
   
   &__card {
@@ -32,6 +36,10 @@
   &__photo {
     margin-top: 1rem;
     @include profile-photo;
+
+    @include desktop {
+      margin-right: 2rem;
+    }
   }
 
   &__name-date-container {
@@ -54,10 +62,6 @@
     color: $mercury;
     font-size: 0.8rem;
     margin: 1rem 0;
-
-    @include desktop {
-      margin-right: 1rem;
-    }
   }
 
   &__text {

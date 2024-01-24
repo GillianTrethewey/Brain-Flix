@@ -6,12 +6,17 @@ import Comment from "../Comment/Comment.js";
 const Comments = ({ currentVideo } ) => {
     const comments = currentVideo.comments.sort((a,b) => b.timestamp - a.timestamp);
 
+    const handleSubmitComment = (event) => {
+      event.preventDefault();
+      alert("Thank you for submitting your comment!");
+    };
+
   return (
     
     <section className="comments">
       <h4 className="comments__count">{comments.length} Comments</h4>
       <div className="comments__container">
-        <form className="comments__form" action="" method="post">
+        <form className="comments__form" action="" method="post" onSubmit={handleSubmitComment}>
           <div className="comments__group--form">
             <div className="comments__photo-container">
               <img
@@ -45,7 +50,7 @@ const Comments = ({ currentVideo } ) => {
         </form>
 
         <section className="comments__list">
-          <ul>
+          <ul className="comments__ul">
           
           {comments.map((comment) => (
             <li key={comment.id} className="comment__list-item">

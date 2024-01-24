@@ -26,9 +26,9 @@
       padding-top: 2.25rem;
       padding-bottom: 1.5rem;
       margin: 0;
+      margin-bottom: 1.5rem;
       border-bottom: 1px solid $mercury;
       border-top: 1px solid $mercury;
-      margin-bottom: 1.5rem;
     }
   }
 
@@ -37,18 +37,20 @@
     flex-direction: column;
 
     @include desktop {
-        flex-direction: row;
-        margin-right: 7.75rem;
+      flex-direction: row;
+      margin-right: 7.75rem;
     }
   }
 
   &__thumbnail {
     width: 100%;
+    max-width: 400px;
     border-radius: 4px;
     margin-bottom: 0.5rem;
+    background-color: $mercury;
 
     @include tablet {
-      width: 50%;
+
     }
 
     @include desktop {
@@ -58,15 +60,14 @@
   }
 
   &__wrapper-form {
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-        @include desktop {
-          width: 100%;
-          margin-left: 1.5rem;
-        }
-      }
-  
+    @include desktop {
+      width: 100%;
+      margin-left: 1.5rem;
+    }
+  }
 
   &__label {
     display: flex;
@@ -80,8 +81,8 @@
     @include tablet {
       font-size: 0.8rem;
       margin: 0;
-     padding-bottom: 0.25rem;
-     padding-top: 0.75rem;
+      padding-bottom: 0.25rem;
+      padding-top: 0.75rem;
     }
 
     @include desktop {
@@ -114,85 +115,83 @@
     }
   }
 
-    &__textarea-title,
-    &__textarea-description {
-        background-color: $alabaster;
-        border: 1px solid $mercury;
-        border-radius: 4px;
-        width: 100%;
-        height: 3rem;
-        line-height: 2rem;
-        padding-left: 0.75rem;
-        margin-bottom: 0.75rem;
-        color: $bf-black;
-        font-family: "Avenir";
-        font-weight: 300;
-        font-size: 0.8rem;
-        color: $bf-dk-black;
+  &__textarea-title,
+  &__textarea-description {
+    background-color: $alabaster;
+    border: 1px solid $mercury;
+    border-radius: 4px;
+    width: 100%;
+    height: 3rem;
+    line-height: 2rem;
+    padding-left: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: $bf-black;
+    font-family: "Avenir";
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: $bf-dk-black;
 
-        @include tablet {
-        height: 2.6rem;
-        font-size: 1rem;
-        margin-bottom: 0;
-        }
-
-        @include desktop {
-        font-size: 0.8rem;
-        }
-
-        &:focus {
-        outline: 1px solid transparent;
-        border: 1px solid $bf-dk-black;
-        }
-
-        &:active {
-        border: 1px solid $bf-dk-black;
-        }
-
-        &::placeholder {
-        color: $bf-black;
-        font-family: "Avenir";
-        font-weight: 300;
-        font-size: 0.8rem;
-
-
-        @include tablet {
-            font-size: 0.8rem;
-        }
-
-        @include desktop {
-            font-size: 0.9rem;
-        }
-        }
+    @include tablet {
+      height: 2.6rem;
+      font-size: 1rem;
+      margin-bottom: 0;
     }
 
-    &__textarea-description {
-        height: 6rem;
-
-        @include tablet {
-            margin-bottom: 2rem;
-            height: 6.25rem;
-        }
-        }
-    
-
-    &__bottom {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-        @include tablet {
-        flex-direction: row;
-        justify-content: flex-end;
-        gap: 5rem;
-        border-top: 1px solid $mercury;
-        padding: 1.5rem 0;
-        }
-
-        @include desktop {
-            margin-right: 7.75rem;
-        }
+    @include desktop {
+      font-size: 0.8rem;
     }
+
+    &:focus {
+      outline: 1px solid transparent;
+      border: 1px solid $bf-dk-black;
+    }
+
+    &:active {
+      border: 1px solid $bf-dk-black;
+    }
+
+    &::placeholder {
+      color: $bf-black;
+      font-family: "Avenir";
+      font-weight: 300;
+      font-size: 0.8rem;
+
+      @include tablet {
+        font-size: 0.8rem;
+      }
+
+      @include desktop {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &__textarea-description {
+    height: 6rem;
+
+    @include tablet {
+      margin-bottom: 2rem;
+      height: 6.25rem;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 5rem;
+      border-top: 1px solid $mercury;
+      padding: 1.5rem 0;
+    }
+
+    @include desktop {
+      margin-right: 7.75rem;
+    }
+  }
 
   &__cancel {
     color: $bf-blue;

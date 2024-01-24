@@ -13,19 +13,19 @@ export const HomePage = () => {
   const [videoList, setVideoList] = useState([]);
   const { videoId } = useParams();
 
-  const getVideoList = async () => {
-    try {
-      const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
-      const baseURL = "https://project-2-api.herokuapp.com";
-      let URL = baseURL + "/videos?api_key=" + apiKey;
-      const response = await axios.get(URL);
-      setVideoList(response.data);
-    } catch (error) {
-      console.log("Failed to get video list:", error);
-    }
-  };
-
   useEffect(() => {
+    const getVideoList = async () => {
+      try {
+        const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
+        const baseURL = "https://project-2-api.herokuapp.com";
+        let URL = baseURL + "/videos?api_key=" + apiKey;
+        const response = await axios.get(URL);
+        setVideoList(response.data);
+      } catch (error) {
+        console.log("Failed to get video list:", error);
+      }
+    };
+
     getVideoList();
   }, []);
 

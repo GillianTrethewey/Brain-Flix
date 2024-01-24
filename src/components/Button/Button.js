@@ -1,8 +1,12 @@
 import './Button.scss';
 
-const Button = (props) => {
+const Button = ({ btnClassName, btnLabel, onClick, btnType }) => {
+
   return (
-    <button className={props.btnClassName} type={props.btnType}>{props.btnLabel}</button>
+    <button 
+    className={btnClassName} 
+    type={btnType} 
+    onClick={onClick}>{btnLabel}</button>
   )
 }
 

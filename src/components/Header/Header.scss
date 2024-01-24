@@ -82,12 +82,16 @@
       background-position: 1rem;
     }
 
-    ::placeholder {
-      color: $bf-dk-black;
-      font-family: "Avenir";
-      font-weight: 300;
-      font-size: 0.8rem;
-    }
+      &::placeholder {
+        color: $bf-dk-black;
+        font-family: "Avenir";
+        font-weight: 300;
+        font-size: 0.7rem;
+
+        @include tablet {
+          font-size: 0.8rem;
+        }
+      }
 
     &:focus {
       outline: 1px solid transparent;

@@ -2,23 +2,31 @@ import "./UploadPage.scss";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button.js";
 import uploadImage from "../../assets/images/upload/Upload-video-preview.jpg";
+import { useState } from "react";
 
 export const UploadPage = () => {
   const navigate = useNavigate();
+  const handleClickToHome = () => navigate("/");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
 
-  const handleOnClickToHome = () => {
-    navigate("/");
-  };
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value);
+  }
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const handleChangeDesc = (event) => {
+    setDesc(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     alert("Thank you for uploading your video!");
-    handleOnClickToHome();
+    handleClickToHome();
   };
 
   return (
-    <div className="upload">
-      <form onSubmit={submitHandler} className="upload__form">
+    <main className="upload">
+      <form onSubmit={handleSubmit} className="upload__form">
         <div className="upload__container">
           <h1 className="upload__heading">Upload Video</h1>
           <div className="upload__image-form-wrapper">
@@ -42,7 +50,10 @@ export const UploadPage = () => {
                 className="upload__textarea-title"
                 name="title"
                 id="video-title"
-                placeholder="Add a title to your video"></textarea>
+                placeholder="Add a title to your video" 
+                onChange={handleChangeTitle}
+                value={title}
+                ></textarea>
 
               <label className="upload__label" htmlFor="video-description">
                 add a video description
@@ -51,7 +62,10 @@ export const UploadPage = () => {
                 className="upload__textarea-description"
                 name="descripton"
                 id="video-description"
-                placeholder="Add a description for your video"></textarea>
+                placeholder="Add a description for your video"
+                onChange={handleChangeDesc}
+                value={desc}
+                ></textarea>
             </div>
           </div>
 
@@ -60,13 +74,14 @@ export const UploadPage = () => {
               btnType="submit"
               btnClassName="button--publish"
               btnLabel="publish"
+              onClick={handleSubmit}
             />
-            <button onClick={handleOnClickToHome} className="upload__cancel">
+            <button onClick={handleClickToHome} className="upload__cancel">
               cancel
             </button>
           </div>
         </div>
       </form>
-    </div>
+    </main>
   );
 };

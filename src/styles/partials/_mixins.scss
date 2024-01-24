@@ -38,15 +38,16 @@
   background-color: $bf-blue ;
   background-position: 0.5rem;
   background-repeat: no-repeat;
-  background-size: 1.3rem;
+  background-size: 1.25rem;
   cursor: pointer;
   vertical-align: middle;
   font-weight: 600;
+  font-size: 0.75rem;
 
   @include tablet {
     width: 150px;
     padding: 0 2rem;
-    background-size: 1.4rem;
+    background-size: 1.1rem;
     height: 2.5rem;
   }
 

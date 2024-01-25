@@ -2,24 +2,21 @@ import "./Header.scss";
 import Button from "../Button/Button.js";
 import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatarImage from "../../assets/images/avatar/Mohan-muruge.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const navigate = useNavigate();
-
-  const handleClickUpload = () => navigate("/upload");
-  const handleClickHome = () => navigate("/");
 
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__logo-container">
+          <Link to="/">
           <img
             className="header__logo"
             src={logo}
             alt="Brain Flix logo"
-            onClick={handleClickHome}
           />
+          </Link>
         </div>
         <div className="header__wrapper">
           <div className="header__search-container">
@@ -33,12 +30,13 @@ const Header = () => {
             <img className="header__avatar" src={avatarImage} alt="avatar" />
           </div>
           <div className="header__button-container">
+            <Link to="/upload">
             <Button
               btnClassName="button--upload"
               btnLabel="UPLOAD"
               btnType=""
-              onClick={handleClickUpload}
             />
+            </Link>
           </div>
           <img
             className="header__avatar--tablet"

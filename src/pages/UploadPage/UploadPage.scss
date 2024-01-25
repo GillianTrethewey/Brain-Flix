@@ -44,7 +44,7 @@
 
   &__thumbnail {
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
     border-radius: 4px;
     margin-bottom: 0.5rem;
     background-color: $mercury;
@@ -54,7 +54,7 @@
     }
 
     @include desktop {
-      height: 172.891px;
+      height: 10.75rem;
       width: auto;
     }
   }

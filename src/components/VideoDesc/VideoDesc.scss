@@ -86,7 +86,7 @@
   }
 
   &__date {
-    color: $mercury;
+    color: $silver;
     font-size: 0.8rem;
   }
 
@@ -115,13 +115,13 @@
   &__views-icon {
     margin-right: 0.5rem;
     margin-top: 0.4rem;
-    fill: $mercury;
+    fill: $silver;
   }
 
   &__views-stats {
     display: flex;
     flex-direction: column;
-    color: $mercury;
+    color: $silver;
     font-size: 0.8rem;
   }
 
@@ -133,12 +133,12 @@
 
   &__likes-icon {
     margin-right: 0.7rem;
-    fill: $mercury;
+    fill: $silver;
     padding-top: 0.4rem;
   }
 
   &__likes-stats {
-    color: $mercury;
+    color: $silver;
     font-size: 0.8rem;
   }
 }

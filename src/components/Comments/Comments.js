@@ -3,20 +3,24 @@ import avatarImg from "../../assets/images/avatar/Mohan-muruge.jpg";
 import Button from "../Button/Button.js";
 import Comment from "../Comment/Comment.js";
 
-const Comments = ({ currentVideo } ) => {
-    const comments = currentVideo.comments.sort((a,b) => b.timestamp - a.timestamp);
+const Comments = ({ currentVideo }) => {
+  const comments = currentVideo.comments.sort(
+    (a, b) => b.timestamp - a.timestamp
+  );
 
-    const handleSubmitComment = (event) => {
-      event.preventDefault();
-      alert("Thank you for submitting your comment!");
-    };
-
+  const handleSubmitComment = (event) => {
+    event.preventDefault();
+    alert("Thank you for submitting your comment!");
+  };
   return (
-    
     <section className="comments">
       <h4 className="comments__count">{comments.length} Comments</h4>
       <div className="comments__container">
-        <form className="comments__form" action="" method="post" onSubmit={handleSubmitComment}>
+        <form
+          className="comments__form"
+          action=""
+          method="post"
+          onSubmit={handleSubmitComment}>
           <div className="comments__group--form">
             <div className="comments__photo-container">
               <img
@@ -51,17 +55,15 @@ const Comments = ({ currentVideo } ) => {
 
         <section className="comments__list">
           <ul className="comments__ul">
-          
-          {comments.map((comment) => (
-            <li key={comment.id} className="comment__list-item">
-              <Comment
-                name={comment.name}
-                comment={comment.comment}
-                timestamp={comment.timestamp}
-              />
-            </li>
-          ))}
-        
+            {comments.map((comment) => (
+              <li key={comment.id} className="comment__list-item">
+                <Comment
+                  name={comment.name}
+                  comment={comment.comment}
+                  timestamp={comment.timestamp}
+                />
+              </li>
+            ))}
           </ul>
         </section>
       </div>

@@ -7,7 +7,7 @@ const Comments = ({ currentVideo }) => {
   const comments = currentVideo.comments.sort(
     (a, b) => b.timestamp - a.timestamp
   );
-
+  
   const handleSubmitComment = (event) => {
     event.preventDefault();
     alert("Thank you for submitting your comment!");

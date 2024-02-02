@@ -9,16 +9,15 @@ import Comments from "../../components/Comments/Comments.js";
 import VideoList from "../../components/VideoList/VideoList.js";
 
 export const HomePage = () => {
-  const [currentVideo, setCurrentVideo] = useState(null);
   const [videoList, setVideoList] = useState([]);
+  const [currentVideo, setCurrentVideo] = useState(null);
   const { videoId } = useParams();
-  const apiKey = "9ca27ce3-997b-42d0-b509-0a904b438fce";
-  const baseURL = "https://project-2-api.herokuapp.com";
+  const baseURL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const getVideoList = async () => {
       try {
-        let getVideoUrl = baseURL + "/videos?api_key=" + apiKey;
+        let getVideoUrl = baseURL + "/videos";
         const response = await axios.get(getVideoUrl);
         setVideoList(response.data);
       } catch (error) {
@@ -39,7 +38,7 @@ export const HomePage = () => {
 
       if (getId) {
         try {
-          let getIdUrl = baseURL + "/videos/" + getId + "?api_key=" + apiKey;
+          let getIdUrl = baseURL + "/videos/" + getId;
           const response = await axios.get(getIdUrl);
           setCurrentVideo(response.data);
         } catch (error) {
@@ -63,8 +62,12 @@ export const HomePage = () => {
         </section>
 
         <section className="flex-video__container">
-          {currentVideo && (
-            <VideoList currentVideo={currentVideo} videoList={videoList} />
+          {videoList && currentVideo && (
+            <VideoList
+              setVideoList={setVideoList}
+              currentVideo={currentVideo}
+              videoList={videoList}
+            />
           )}
         </section>
       </div>

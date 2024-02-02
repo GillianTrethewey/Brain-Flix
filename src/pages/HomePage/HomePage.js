@@ -7,17 +7,18 @@ import HeroVideo from "../../components/HeroVideo/HeroVideo.js";
 import VideoDesc from "../../components/VideoDesc/VideoDesc.js";
 import Comments from "../../components/Comments/Comments.js";
 import VideoList from "../../components/VideoList/VideoList.js";
+const baseURL = process.env.REACT_APP_API_URL;
 
 export const HomePage = () => {
   const [videoList, setVideoList] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const { videoId } = useParams();
-  //const baseURL = "http://localhost:8000";
+
 
   useEffect(() => {
     const getVideoList = async () => {
       try {
-        let getVideoUrl = "http://localhost:8000/videos";
+        let getVideoUrl = baseURL + "/videos";
         const response = await axios.get(getVideoUrl);
         setVideoList(response.data);
       } catch (error) {
@@ -38,7 +39,7 @@ export const HomePage = () => {
 
       if (getId) {
         try {
-          let getIdUrl = "http://localhost:8000/videos/" + getId;
+          let getIdUrl = baseURL + "/videos/" + getId;
           const response = await axios.get(getIdUrl);
           setCurrentVideo(response.data);
         } catch (error) {

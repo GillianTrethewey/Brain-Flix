@@ -29,12 +29,12 @@ export const UploadPage = () => {
   const newVideoSubmit = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/upload`,
+        `http://localhost:8000/videos`,
         formData
       );
       alert("Thank you for uploading your video!");
+      console.log("Video uploaded:", response.data);
       navigate("/");
-      return response.data;
     } catch (error) {
       console.log("Failed to upload video:", error);
     }

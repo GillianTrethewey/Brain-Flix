@@ -9,7 +9,7 @@ const HeroVideo = ({ currentVideo }) => {
         className="hero-video"
         controls
         alt="featured video section"
-        poster={currentVideo?.image}>
+        poster={`http://localhost:8000/images/${currentVideo?.image}`}>
       </video>
     </section>
   );

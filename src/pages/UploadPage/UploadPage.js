@@ -3,65 +3,48 @@ import { useNavigate, Link } from "react-router-dom";
 import Button from "../../components/Button/Button.js";
 import uploadImage from "../../assets/images/upload/Upload-video-preview.jpg";
 import { useState } from "react";
+import axios from "axios";
+//const API_URL = process.env.REACT_APP_API_URL;
 
 export const UploadPage = () => {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+  });
 
   let navigate = useNavigate();
 
-  const handleChangeTitle = (event) => {
-    setTitle(event.target.value);
+  const isFormValid = () => !isTitleValid() || !isDescValid();
+  const isDescValid = () => formData.desc;
+  const isTitleValid = () => formData.title;
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleChangeDesc = (event) => {
-    setDesc(event.target.value);
-  };
-
-  const isFormValid = function () {
-    if (!isTitleValid()) {
-      return false;
-    } else if (!isDescValid()) {
-      return false;
+  const newVideoSubmit = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8000/upload`,
+        formData
+      );
+      alert("Thank you for uploading your video!");
+      navigate("/");
+      return response.data;
+    } catch (error) {
+      console.log("Failed to upload video:", error);
     }
-    return true;
-  };
-
-  const isDescValid = () => {
-    if (desc) {
-      return true;
-    }
-    return false;
-  };
-
-  const isTitleValid = () => {
-    if (title) {
-      return true;
-    }
-    return false;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!isFormValid()) {
-      alert("Please enter both a title and a description of your video");
-    } else {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("description", desc);
-      const newVideoSubmit = async () => {
-        try {
-          const response = await axios.post(`${baseURL}/uploads`, formData);
-          alert("Thank you for uploading your video!");
-          setTitle("");
-          setDesc("");
-          navigate("/");
-        } catch (error) {
-          console.log("Failed to upload video:", error);
-        }
-        newVideoSubmit();
-      };
-    }
+    !isFormValid()
+      ? alert("Please enter both a title and a description of your video")
+      : newVideoSubmit();
   };
 
   return (
@@ -91,19 +74,19 @@ export const UploadPage = () => {
                 name="title"
                 id="video-title"
                 placeholder="Add a title to your video"
-                onChange={handleChangeTitle}
-                value={title}></textarea>
+                onChange={handleInputChange}
+                value={formData.title}></textarea>
 
               <label className="upload__label" htmlFor="video-description">
                 add a video description
               </label>
               <textarea
                 className="upload__textarea-description"
-                name="descripton"
+                name="description"
                 id="video-description"
                 placeholder="Add a description for your video"
-                onChange={handleChangeDesc}
-                value={desc}></textarea>
+                onChange={handleInputChange}
+                value={formData.desc}></textarea>
             </div>
           </div>
 
@@ -112,7 +95,6 @@ export const UploadPage = () => {
               btnType="submit"
               btnClassName="button--publish"
               btnLabel="publish"
-              onClick={handleSubmit}
             />
             <Link to="/">
               <button className="upload__cancel">cancel</button>

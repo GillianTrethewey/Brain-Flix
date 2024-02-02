@@ -12,12 +12,12 @@ export const HomePage = () => {
   const [videoList, setVideoList] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const { videoId } = useParams();
-  const baseURL = "http://localhost:8000";
+  //const baseURL = "http://localhost:8000";
 
   useEffect(() => {
     const getVideoList = async () => {
       try {
-        let getVideoUrl = baseURL + "/videos";
+        let getVideoUrl = "http://localhost:8000/videos";
         const response = await axios.get(getVideoUrl);
         setVideoList(response.data);
       } catch (error) {
@@ -38,7 +38,7 @@ export const HomePage = () => {
 
       if (getId) {
         try {
-          let getIdUrl = baseURL + "/videos/" + getId;
+          let getIdUrl = "http://localhost:8000/videos/" + getId;
           const response = await axios.get(getIdUrl);
           setCurrentVideo(response.data);
         } catch (error) {

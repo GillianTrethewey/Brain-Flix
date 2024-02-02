@@ -7,6 +7,7 @@ import { useState } from "react";
 export const UploadPage = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+
   let navigate = useNavigate();
 
   const handleChangeTitle = (event) => {
@@ -45,10 +46,21 @@ export const UploadPage = () => {
     if (!isFormValid()) {
       alert("Please enter both a title and a description of your video");
     } else {
-      alert("Thank you for uploading your video!");
-      setTitle("");
-      setDesc("");
-      navigate("/");
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("description", desc);
+      const newVideoSubmit = async () => {
+        try {
+          const response = await axios.post(`${baseURL}/uploads`, formData);
+          alert("Thank you for uploading your video!");
+          setTitle("");
+          setDesc("");
+          navigate("/");
+        } catch (error) {
+          console.log("Failed to upload video:", error);
+        }
+        newVideoSubmit();
+      };
     }
   };
 

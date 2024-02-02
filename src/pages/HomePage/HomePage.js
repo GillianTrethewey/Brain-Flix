@@ -12,7 +12,7 @@ export const HomePage = () => {
   const [videoList, setVideoList] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
   const { videoId } = useParams();
-  const baseURL = process.env.REACT_APP_API_URL;
+  const baseURL = "http://localhost:8000";
 
   useEffect(() => {
     const getVideoList = async () => {

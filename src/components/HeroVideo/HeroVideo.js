@@ -1,7 +1,7 @@
 import "./HeroVideo.scss";
+const Url = process.env.REACT_APP_API_URL;
 
 const HeroVideo = ({ currentVideo }) => {
-
   return (
     <section className="hero-video__container">
       <video
@@ -9,8 +9,7 @@ const HeroVideo = ({ currentVideo }) => {
         className="hero-video"
         controls
         alt="featured video section"
-        poster={`http://localhost:8000/images/${currentVideo?.image}`}>
-      </video>
+        poster={`${Url}/images/${currentVideo?.image}`}></video>
     </section>
   );
 };

@@ -2,11 +2,10 @@ import "./VideoList.scss";
 import Video from "../Video/Video.js";
 
 const VideoList = ({ videoList, currentVideo }) => {
-  
   return (
     <section className="video-list__container">
       <h2 className="video-list__title">NEXT VIDEOS</h2>
-      
+
       <ul className="video-list">
         {videoList
           .filter((video) => video.id !== currentVideo.id)

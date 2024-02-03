@@ -4,7 +4,8 @@ import Button from "../../components/Button/Button.js";
 import uploadImage from "../../assets/images/upload/Upload-video-preview.jpg";
 import { useState } from "react";
 import axios from "axios";
-//const API_URL = process.env.REACT_APP_API_URL;
+let baseURL = process.env.REACT_APP_API_URL;
+let postURL = baseURL + "/videos";
 
 export const UploadPage = () => {
   const [formData, setFormData] = useState({
@@ -14,10 +15,6 @@ export const UploadPage = () => {
 
   let navigate = useNavigate();
 
-  const isFormValid = () => !isTitleValid() || !isDescValid();
-  const isDescValid = () => formData.desc;
-  const isTitleValid = () => formData.title;
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -26,25 +23,19 @@ export const UploadPage = () => {
     });
   };
 
-  const newVideoSubmit = async () => {
-    try {
-      const response = await axios.post(
-        `http://localhost:8000/videos`,
-        formData
-      );
-      alert("Thank you for uploading your video!");
-      console.log("Video uploaded:", response.data);
-      navigate("/");
-    } catch (error) {
-      console.log("Failed to upload video:", error);
-    }
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    !isFormValid()
-      ? alert("Please enter both a title and a description of your video")
-      : newVideoSubmit();
+    if (formData.title && formData.description) {
+      try {
+        await axios.post(postURL, formData);
+        alert("Thank you for uploading your video!");
+        navigate("/");
+      } catch (error) {
+        console.log("Failed to upload video:", error);
+      }
+    } else {
+      alert("Please enter both a title and a description of your video");
+    }
   };
 
   return (
@@ -86,7 +77,7 @@ export const UploadPage = () => {
                 id="video-description"
                 placeholder="Add a description for your video"
                 onChange={handleInputChange}
-                value={formData.desc}></textarea>
+                value={formData.description}></textarea>
             </div>
           </div>
 
